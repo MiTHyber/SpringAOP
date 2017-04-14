@@ -15,9 +15,20 @@
 		<property name="name" value="Triangle name"></property>
 	</bean>
 	<bean name="circle" class="com.mithyber.model.Circle">
-		<property name="name" value="Circle name"></property>
+<!-- 		<property name="name" value="Circle name"></property> -->
 	</bean>
 	<bean name="shapeService" class="com.mithyber.service.ShapeService"
 		autowire="byName" />		
 	<bean name="loggingAspect" class="com.mithyber.aspect.LoggingAspect" />
+	<!-- config instead of annotations -->
+	<aop:config>
+	<!-- equal to marking class with @Aspect -->
+		<aop:aspect id="loggingAspect" ref="loggingAspect">
+	<!-- same as @Pointcut -->
+	<!-- <aop:pointcut expression="execution(public * get*(..))" id="allGetters"/> -->
+	<!-- same as @Around -->
+	<!-- <aop:around method="myAroundAdvice" pointcut-ref="allGetters"/> -->
+			<aop:around method="myAroundAdvice" pointcut="execution(public * get*(..))"/>
+		</aop:aspect>		
+	</aop:config>
 </beans>

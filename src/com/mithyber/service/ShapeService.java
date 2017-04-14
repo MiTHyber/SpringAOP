@@ -1,5 +1,6 @@
 package com.mithyber.service;
 
+import com.mithyber.aspect.Loggable;
 import com.mithyber.model.Circle;
 import com.mithyber.model.Triangle;
 
@@ -7,6 +8,7 @@ public class ShapeService {
     private Circle circle;
     private Triangle triangle;
 
+    @Loggable
     public Circle getCircle() {
 	return circle;
     }

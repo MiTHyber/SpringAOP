@@ -91,4 +91,8 @@ public class LoggingAspect {
     // @Pointcut("args(com.mithyber.model.Circle))")
     // public void allMethodsThatTakeCircleAsParameter() {
     // }
+
+    public void myLoggingAdvice() {
+	System.out.println("Logging from the advice");
+    }
 }
